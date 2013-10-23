@@ -14,7 +14,7 @@ def error_string(code):
     return error_string(code)
 
 class Error(Exception):
-    def __init__(msg):
+    def __init__(self, msg):
         self.msg = msg
 
 class Device():
