@@ -48,3 +48,12 @@ class Device():
         else:
             raise Error(error_string(code))
 
+    def get_temperature(self):
+        temperature = ctypes.c_uint(0)
+        code = NVML.nvmlDeviceGetTemperature(self.handle,
+            ctypes.byref(temperature))
+        if 0 == code:
+            return temperature
+        else:
+            print code
+            raise Error(error_string(code))
